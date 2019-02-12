@@ -4,21 +4,22 @@ import com.google.imdb.raw.IMDBmodel;
 
 public interface Contract {
 
-    interface View{
+    interface View {
         void onDataReceived(IMDBmodel result);
         void onConnectionfaild();
-        void showLoading(boolean show);
+
     }
-    interface Presenter{
-        void attachView(View view);
-        void orderToGetData();
+
+    interface Presenter {
+        void search(String word);
         void onConnectionfaild();
         void onDataReceived(IMDBmodel result);
-        void isOnLoading(boolean is);
+
     }
-    interface Model{
+
+    interface Model {
         void attachPresenter(Presenter presenter);
-        void orderToGetData(String word);
+        void search(String word);
 
     }
 }

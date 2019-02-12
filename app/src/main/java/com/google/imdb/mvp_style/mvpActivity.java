@@ -19,9 +19,9 @@ public class mvpActivity extends AppCompatActivity implements Contract.View, Vie
     TextView title, released, director, rate;
     EditText word;
     ImageView search;
-    ProgressDialog dialog;
 
-    Presenter presenter = new Presenter();
+    ProgressDialog dialog;
+    Presenter presenter = new Presenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,6 @@ public class mvpActivity extends AppCompatActivity implements Contract.View, Vie
 
     @Override
     public void onDataReceived(IMDBmodel result) {
-
         title.setText("Title : " + result.getTitle());
         director.setText("Director : " + result.getDirector());
         released.setText("Released : " + result.getReleased());
@@ -60,17 +59,9 @@ public class mvpActivity extends AppCompatActivity implements Contract.View, Vie
 
     }
 
-    @Override
-    public void showLoading(boolean show) {
-        if (show)
-            dialog.show();
-        else
-            dialog.dismiss();
-
-    }
 
     @Override
     public void onClick(View v) {
-        presenter.orderToGetData();
+        presenter.search(word.getText().toString());
     }
 }

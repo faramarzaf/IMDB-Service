@@ -6,15 +6,14 @@ public class Presenter implements Contract.Presenter {
     Contract.View view;
     Contract.Model model = new Model();
 
-    @Override
-    public void attachView(Contract.View view) {
+    public Presenter(Contract.View view) {
         this.view = view;
         model.attachPresenter(this);
     }
 
     @Override
-    public void orderToGetData() {
-        model.orderToGetData();
+    public void search(String word) {
+        model.search(word);
     }
 
     @Override
@@ -28,8 +27,5 @@ public class Presenter implements Contract.Presenter {
         view.onDataReceived(result);
     }
 
-    @Override
-    public void isOnLoading(boolean is) {
-        view.showLoading(is);
-    }
+
 }
