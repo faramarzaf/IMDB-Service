@@ -29,6 +29,12 @@ public class Model implements Contract.Model {
 
         client.get(url, new TextHttpResponseHandler() {
             @Override
+            public void onStart() {
+                super.onStart();
+                presenter.isOnLoading(true);
+            }
+
+            @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 presenter.onConnectionfaild();
                 Log.e("statusCode", "" + statusCode);
@@ -37,6 +43,12 @@ public class Model implements Contract.Model {
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
                 parseData(responseString);
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                presenter.isOnLoading(false);
             }
         });
     }

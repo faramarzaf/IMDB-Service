@@ -27,5 +27,10 @@ public class Presenter implements Contract.Presenter {
         view.onDataReceived(result);
     }
 
+    @Override
+    public void isOnLoading(boolean is) {
+        view.showLoading(is);
+    }
+
 
 }

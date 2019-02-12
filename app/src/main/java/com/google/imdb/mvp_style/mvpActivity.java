@@ -59,6 +59,14 @@ public class mvpActivity extends AppCompatActivity implements Contract.View, Vie
 
     }
 
+    @Override
+    public void showLoading(boolean show) {
+        if (show)
+            dialog.show();
+        else
+            dialog.dismiss();
+    }
+
 
     @Override
     public void onClick(View v) {
