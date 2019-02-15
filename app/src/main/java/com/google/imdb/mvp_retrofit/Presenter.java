@@ -5,7 +5,7 @@ import com.google.imdb.raw.IMDBmodel;
 public class Presenter implements Contract.Presenter {
 
     Contract.View view;
-    Contract.Model model = new Model();
+    Model model = new Model();
 
     @Override
     public void attachView(Contract.View view) {

@@ -1,5 +1,6 @@
 package com.google.imdb.mvp_retrofit;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +18,7 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
     Presenter presenter = new Presenter();
 
     EditText word;
-    ImageView search;
-    ImageView poster;
+    ImageView search,poster;
     TextView title, released, director, rate;
 
 
@@ -26,8 +26,8 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retro);
-        presenter.attachView(this);
         bind();
+        presenter.attachView(this);
         search.setOnClickListener(this);
     }
 
@@ -51,6 +51,7 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void movieFound(IMDBmodel result) {
         title.setText("Title : " + result.getTitle());

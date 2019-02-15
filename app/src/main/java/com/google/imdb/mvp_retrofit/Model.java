@@ -10,7 +10,7 @@ import retrofit2.Response;
 
 public class Model implements Contract.Model {
 
-    Contract.Presenter presenter;
+    private Contract.Presenter presenter;
     ServiceInterface webInterface = RetroGenerator.createService(ServiceInterface.class);
 
     @Override
@@ -20,7 +20,7 @@ public class Model implements Contract.Model {
 
     @Override
     public void search(String word) {
-        webInterface.searchMovie(word,"bfe17a0c").enqueue(new Callback<IMDBmodel>() {
+        webInterface.searchMovie(word,"70ad462a").enqueue(new Callback<IMDBmodel>() {
 
             @Override
             public void onResponse(@NonNull Call<IMDBmodel> call, @NonNull Response<IMDBmodel> response) {

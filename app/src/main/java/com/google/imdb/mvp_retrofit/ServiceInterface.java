@@ -8,11 +8,11 @@ import retrofit2.http.Query;
 
 public interface ServiceInterface {
 
-// ?i=tt3896198&apikey=bfe17a0c
+    //http://www.omdbapi.com/?t=thor&apikey=70ad462a
 
     @GET("\n")
     Call<IMDBmodel> searchMovie(
-            @Query("i") String word,
+            @Query("t") String word,
             @Query("apikey") String key
     );
 
