@@ -28,4 +28,9 @@ public class Presenter implements Contract.Presenter {
     public void movieFound(IMDBmodel result) {
         view.movieFound(result);
     }
+
+    @Override
+    public void isOnLoading(boolean is) {
+        view.showLoading(is);
+    }
 }

@@ -7,12 +7,14 @@ public interface Contract {
     interface View{
         void faild();
         void movieFound(IMDBmodel result);
+        void showLoading(boolean show);
     }
     interface Presenter{
         void attachView(View view);
         void search(String word);
         void faild();
         void movieFound(IMDBmodel result);
+        void isOnLoading(boolean is);
     }
 
     interface Model{

@@ -1,6 +1,7 @@
 package com.google.imdb.mvp_retrofit;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
     EditText word;
     ImageView search,poster;
     TextView title, released, director, rate;
-
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
         setContentView(R.layout.activity_retro);
         bind();
         presenter.attachView(this);
+        dialog = new ProgressDialog(this);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please wait to load");
         search.setOnClickListener(this);
     }
 
@@ -60,6 +64,14 @@ public class RetroActivity extends AppCompatActivity implements Contract.View, V
         rate.setText("Rating : " + result.getImdbRating());
         Glide.with(this).load(result.getPoster()).into(poster);
 
+    }
+
+    @Override
+    public void showLoading(boolean show) {
+        if (show)
+            dialog.show();
+        else
+            dialog.dismiss();
     }
 
 
