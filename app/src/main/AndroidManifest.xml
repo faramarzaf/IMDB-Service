@@ -12,22 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".mvp_style.mvpActivity">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true"
+        >
+
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".mvp_style.mvpActivity"></activity>
+        <activity android:name=".mvp_retrofit.RetroActivity">
 
         </activity>
 
-
-        <activity android:name=".mvp_retrofit.RetroActivity">
+        <activity android:name=".mvp_retrofit_rx.RetroRxImdbActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
 
     </application>
 
